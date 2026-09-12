@@ -303,6 +303,48 @@ const GROK_BUILD_0_1 = {
   },
 } as const satisfies ModelMeta
 
+const GROK_4_5 = {
+  name: 'grok-4.5',
+  context_window: 500_000,
+  max_output_tokens: 450_000,
+  supports: {
+    input: ['text', 'image', 'document'],
+    output: ['text'],
+    capabilities: ['reasoning', 'structured_outputs', 'tool_calling'],
+    tools: [],
+  },
+  pricing: {
+    input: {
+      normal: 2,
+      cached: 0.3,
+    },
+    output: {
+      normal: 6,
+    },
+  },
+} as const satisfies ModelMeta
+
+const GROK_4_6 = {
+  name: 'grok-4.6',
+  context_window: 500_000,
+  max_output_tokens: 450_000,
+  supports: {
+    input: ['text', 'image', 'document'],
+    output: ['text'],
+    capabilities: ['reasoning', 'structured_outputs', 'tool_calling'],
+    tools: [],
+  },
+  pricing: {
+    input: {
+      normal: 2,
+      cached: 0.5,
+    },
+    output: {
+      normal: 6,
+    },
+  },
+} as const satisfies ModelMeta
+
 export const GROK_CHAT_MODELS = [
   GROK_4_1_FAST_REASONING.name,
   GROK_4_1_FAST_NON_REASONING.name,
@@ -320,6 +362,9 @@ export const GROK_CHAT_MODELS = [
   GROK_4_3.name,
 
   GROK_BUILD_0_1.name,
+
+  GROK_4_5.name,
+  GROK_4_6.name,
 ] as const
 
 /**
@@ -426,6 +471,8 @@ export type GrokModelInputModalitiesByName = {
   [GROK_4_20_MULTI_AGENT.name]: typeof GROK_4_20_MULTI_AGENT.supports.input
   [GROK_4_3.name]: typeof GROK_4_3.supports.input
   [GROK_BUILD_0_1.name]: typeof GROK_BUILD_0_1.supports.input
+  [GROK_4_5.name]: typeof GROK_4_5.supports.input
+  [GROK_4_6.name]: typeof GROK_4_6.supports.input
 }
 
 /**
